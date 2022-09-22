@@ -1,0 +1,16 @@
+print: (thing:_) = std::cout << ">> " << thing << "\n";
+
+decorate_and_print: (inout thing:_) = { 
+    thing = "[" + thing + "]";
+    print(thing);
+}
+
+main: () -> int = {
+    words: std::vector<std::string> = ( "hello", "big", "world" );
+
+    std::cout << "\n";
+
+  	for words do: (inout word:_) =
+        decorate_and_print(word);
+
+}
